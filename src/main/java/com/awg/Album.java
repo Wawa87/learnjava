@@ -28,6 +28,4 @@ public class Album {
     public void setArtistId(int artistId) {
         this.artistId = artistId;
     }
-
-    
 }

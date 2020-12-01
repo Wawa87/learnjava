@@ -1,15 +1,11 @@
 package com.awg;
 
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 
 /**
- * Hello world!
+ * Hello universe!
  *
  */
 public class App {
@@ -21,56 +17,59 @@ public class App {
     public static final String COLUMN_EMAIL = "email";
 
     public static void main( String[] args ) {
-        System.out.println( "Hello Universe!" );
+    //     System.out.println( "Hello Universe!" );
 
-        DataSource ds = new DataSource();
-        if (!ds.open()) {
-            System.out.println("Can't open the data source!");
-            return;
-        }
+    //     DataSource ds = new DataSource();
+    //     if (!ds.open()) {
+    //         System.out.println("Can't open the data source!");
+    //         return;
+    //     }
 
-        List<Artist> artists = ds.queryArtists();
-        if (artists == null) {
-            System.out.println("No artists!");
-            return;
-        }
+    //     List<Artist> artists = ds.queryArtists(DataSource.ORDER_BY_DESC);
+    //     if (artists == null) {
+    //         System.out.println("No artists!");
+    //         return;
+    //     }
 
-        for (Artist artist : artists) {
-            System.out.println("ID=" + artist.getId() + ", Name=" + artist.getName());
-        }
-        ds.close();
+    //     for (Artist artist : artists) {
+    //         System.out.println("ID=" + artist.getId() + ", Name=" + artist.getName());
+    //     }
 
-        // try {
-        //     Connection con = DriverManager.getConnection(CONNECTION_STRING);
-        //     Statement stmt = con.createStatement();
-            
-        //     stmt.execute("DROP TABLE IF EXISTS " + TABLE_CONTACTS);
+    //     List<String> albums = ds.queryAlbumsForArtist("Iron Maiden", DataSource.ORDER_BY_ASC);
+    //     if (albums == null) {
+    //         System.out.println("No albums!");
+    //         return;
+    //     }
 
-        //     stmt.execute("CREATE TABLE IF NOT EXISTS " + TABLE_CONTACTS + " ("
-        //         + COLUMN_NAME + " TEXT,"
-        //         + COLUMN_PHONE + " INTEGER,"
-        //         + COLUMN_EMAIL + " TEXT)");
+    //     for (String album : albums) {
+    //         System.out.println(album);
+    //     }
 
-        //     insertContact(stmt, "Chocolate", 1234, "chocolate@dogmail.com");
-        //     insertContact(stmt, "Coco", 4321, "coco@catmail.com");
-        //     insertContact(stmt, "Dende", 3256, "dende@dogmail.com");
+    //     List<SongArtist> songArtists = ds.queryArtistsForSong("Balls to the Wall", DataSource.ORDER_BY_ASC);
+    //     if (songArtists == null) {
+    //         System.out.println("Couldn't find any artists!");
+    //         return;
+    //     }
 
-        //     ResultSet rs = stmt.executeQuery("SELECT * FROM contacts");
-        //     while (rs.next()) {
-        //         System.out.println(rs.getString(1));
-        //         System.out.println(rs.getString(2));
-        //         System.out.println(rs.getString(3));
-        //     }
-        //     rs.close();
-        //     stmt.close();
-        //     con.close();
-        // } catch (SQLException e) {
-        //     e.printStackTrace();
-        // }
+    //     for (SongArtist artist : songArtists) {
+    //         System.out.println("Artist name = " + artist.getArtistName() +
+    //             " Album name = " + artist.getAlbumName() +
+    //             " Track = " + artist.getTrack());
+    //     }
+
+    //     ds.querySongsMetaData();
+
+    //     int count = ds.getCount(DataSource.TABLE_TRACKS);
+    //     System.out.println("Number of songs: " + count);
+
+    //     ds.close();
+
+        
     }
 
-    public static void insertContact(Statement stmt, String name, int phone, String email) throws SQLException {
-        stmt.execute("INSERT INTO " + TABLE_CONTACTS + " (" + COLUMN_NAME + "," + COLUMN_PHONE + "," + COLUMN_EMAIL + ") VALUES ('"
-        + name + "','" + phone + "','" + email + "')");
-    }
+    // public static void insertContact(Statement stmt, String name, int phone, String email) throws SQLException {
+    //     stmt.execute("INSERT INTO " + TABLE_CONTACTS + " (" + COLUMN_NAME + "," + COLUMN_PHONE + "," + COLUMN_EMAIL + ") VALUES ('"
+    //     + name + "','" + phone + "','" + email + "')");
+    // }
+    
 }
